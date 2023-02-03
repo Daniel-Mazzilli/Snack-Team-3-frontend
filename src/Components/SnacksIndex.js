@@ -86,7 +86,7 @@ export default function SnacksIndex() {
       .catch(err => console.log(err))
     
     
-  }, [snacks.length, favorite.length]);
+  }, [snacks.length]);
 
   return (
     <div className="index">
