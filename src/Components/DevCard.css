@@ -19,7 +19,7 @@
 .dev-container {
   margin: 0 auto;
   width: 77%;
-  height: 92vh;
+  height: 100%;
   justify-items: center;
   column-gap: 80px;
   display: grid;
@@ -88,11 +88,11 @@
 @media (max-width: 1200px) {
 
   article {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
   }
   .dev-container {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
   }
 }
