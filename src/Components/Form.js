@@ -40,7 +40,7 @@ export default function Form() {
   }, [snack.fiber, snack.protein, snack.added_sugar]);
 
   useEffect(() => {
-    if (snack.name === "d3v$f4v$") {
+    if (snack.name === "P0i$0n") {
       setHidden(false);
       setModal(true);
     }
@@ -52,9 +52,6 @@ export default function Form() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // if (snack.name === "d3v$f4v$") {
-    //   setModal(true);
-    // } else
     if (id) {
       axios
         .put(`${API}/snacks/${id}`, snack)

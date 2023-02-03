@@ -20,7 +20,7 @@ export default function RouteComponent() {
       <Route path="/snacks/new" element={<New />} />
       <Route path="/about" element={<About />} />
       <Route path="/not-found" element={<FourOFour />} />
-      {hidden?<></>:<Route path="/d3v$f4v$" element={<Hidden />} />}
+      {hidden?<></>:<Route path="/P0i$0n" element={<Hidden />} />}
       <Route path="*" element={<Navigate to="/not-found" />} />
     </Routes>
   );
