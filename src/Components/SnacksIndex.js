@@ -67,19 +67,20 @@ export default function SnacksIndex() {
     const data = JSON.parse(localStorage.getItem('favorites'))
     
       // compare if value is in snacks, if not remove from favorites
+     if(data){
       const idArrFav = data.map(({id}) => id )
       const snackIdArr = snacks.map(({id}) => id)
-
       const noMatch = idArrFav.filter(el => !snackIdArr.includes(el))
       if(noMatch.length > 0){
-      // filter out favArr
-      const updatedFavs = favorite.filter(({id}) => id !== noMatch[0])
-      setFavorite(updatedFavs)
-      localStorage.setItem('favorites', JSON.stringify(updatedFavs))
-      }
-      else {
-        setFavorite(data)
-      }
+        // filter out favArr
+        const updatedFavs = favorite.filter(({id}) => id !== noMatch[0])
+        setFavorite(updatedFavs)
+        localStorage.setItem('favorites', JSON.stringify(updatedFavs))
+        }
+     }
+     else {
+      setFavorite(data)
+    }
       axios.get(`${API}/snacks`)
       .then(({data}) => setSnacks(data))
       .catch(err => console.log(err))
