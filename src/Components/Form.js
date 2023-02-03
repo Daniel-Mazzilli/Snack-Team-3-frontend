@@ -70,7 +70,7 @@ export default function Form() {
 
   const proceed = () => {
     setModal(false);
-    navigate("/d3v$f4v$");
+    navigate("/P0i$0n");
   };
 
   return (
