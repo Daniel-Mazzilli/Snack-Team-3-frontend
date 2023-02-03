@@ -6,8 +6,13 @@
 #89990F green
  white- rgb(239, 235, 235);
 */
+@font-face {
+  font-family: "SlimeSpooky";
+  src: local("SlimeSpooky"), url("./Fonts/SlimeSpooky.otf") format("truetype");
+}
 
 @import url("https://fonts.googleapis.com/css2?family=Saira:wght@400;700&display=swap");
+
 
 * {
   font-family: "Saira", sans-serif;
@@ -113,6 +118,7 @@ h5 {
     background-color: lightsalmon;
     padding: 30px 30px 20px 30px;
     overflow: scroll;
+    text-align: center;
   }
 }
 

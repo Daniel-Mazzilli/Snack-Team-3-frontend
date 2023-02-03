@@ -7,6 +7,7 @@ import Edit from "../Pages/Edit.js";
 import New from "../Pages/New.js";
 import About from "../Pages/About.js";
 import FourOFour from "../Pages/FourOFour.js";
+import Hidden from "../Pages/Hidden.js";
 
 export default function RouteComponent() {
   const { hidden } = useContextProvider();
@@ -19,7 +20,7 @@ export default function RouteComponent() {
       <Route path="/snacks/new" element={<New />} />
       <Route path="/about" element={<About />} />
       <Route path="/not-found" element={<FourOFour />} />
-      {hidden?<></>:<Route path="/d3v$f4v$" element={<h1>HIDDEN PAGE</h1>} />}
+      {hidden?<></>:<Route path="/d3v$f4v$" element={<Hidden />} />}
       <Route path="*" element={<Navigate to="/not-found" />} />
     </Routes>
   );

@@ -1,0 +1,74 @@
+
+.hidden {
+    padding: 10px 0;
+    display: grid;
+    grid-template-rows: .3fr 2fr;
+    background-image: url('http://wallup.net/wp-content/uploads/2016/05/25/219532-pattern-optical_illusion.jpg');
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 auto;
+    justify-items: center;
+    align-items: center;
+    animation: beat 7s linear infinite;
+}
+ .hidden h1 {
+    font-family: SlimeSpooky;
+    color: #65FF00;
+    padding: 10px;
+    border: 2px solid #f04199;
+    font-size: 120px;
+    margin: 0;
+    margin-top: 2%;
+    grid-row: 1;
+    background-color: rgba(0, 0, 0, 0.706);
+    border-radius: 24px;
+    
+ }
+
+ .hidden .hidden-snacks{
+    position:absolute; 
+    top:0px; 
+    left:0px; 
+    overflow:hidden; 
+    white-space: nowrap;
+    animation: marquee 15s linear infinite;
+ }
+
+.hidden img {
+    height: 320px;
+    border-radius: 24px;
+    border: 2px lime solid;
+    margin-right: 10px;
+
+}
+
+.hidden-container {
+    grid-column: 1;
+    grid-row: 2;
+    height:350px; 
+    position:relative; 
+    overflow:hidden;
+    width: 100%;
+    bottom: 50px;
+   
+}
+
+@keyframes marquee {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-50%, 0);
+    }
+  }
+
+  @keyframes beat {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.15);
+    }
+  }
