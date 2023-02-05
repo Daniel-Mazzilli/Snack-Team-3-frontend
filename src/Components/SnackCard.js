@@ -27,31 +27,41 @@ export default function SnackCard({snack, setSearchResult, setSearch, favorite, 
         .catch(err => console.log(err))
     }
 
-    function handleCheckbox() {
+   async function handleCheckbox() {
         setChecked(!checked)
-        const exist = favorite.find(obj => +id === obj.id)
+        const exist = favorite.find(obj => +id === obj.snack_id)
         if(!exist){
          const favObj = snacks.find(obj=> +id === obj.id)
          setFavorite([...favorite, favObj])
-         localStorage.setItem('favorites', JSON.stringify([...favorite, favObj]))
+         
+       axios.post(`${API}/favorites`, {
+            name: favObj.name,
+            snack_id: favObj.id
+         })
+         .then(() => {})
+         .catch(err => console.log(err))
+        
         }
         if(exist){
-            const removeFav = favorite.filter(obj => +obj.id !== +id)
+            const removeFav = favorite.filter(obj => +obj.snack_id !== +id)
             setFavorite(removeFav)
-            localStorage.setItem('favorites', JSON.stringify(removeFav))  
+          
+            axios.delete(`${API}/favorites/${id}`, id)
+            .then(() => {})
+            .catch(err => console.log(err))
         }
     }
     useEffect(() => {
-        const data = JSON.parse(localStorage.getItem('favorites'))
-        if(data){
-            const isFav = data.find(obj => +obj.id === id)
+        axios.get(`${API}/favorites`)
+        .then(({data}) => {
+            const isFav = data.find(obj => +obj.snack_id === id)
             if(!isFav){
-                setChecked(false)
+            setChecked(false)
             }
             else {
-                setChecked(true)
+            setChecked(true)
             }
-        } 
+            })
     },[id])
 
     return(
