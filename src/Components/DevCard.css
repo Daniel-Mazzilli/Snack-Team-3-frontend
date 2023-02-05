@@ -13,19 +13,23 @@
   /* destiny added all dev cards same size -> fluidity */
   min-height: fit-content;
   max-height: 300px;
-  overflow-y: scroll;
   display: grid;
   grid-template-columns: 1fr 1.5fr;
-  grid-template-rows: 1fr auto;
+  grid-template-rows: .5fr 1fr auto;
   column-gap: 20px;
+  padding-top: 10px;
+  overflow-y: scroll;
 }
 
 .dev-content {
   justify-self: center;
   /* destiny added */
   grid-column: 2;
-  grid-row: 1/3;
+  grid-row: 2/4;
+  max-height: 100px ;
+  margin-top: 5%;
 }
+
 
 .dev-container {
   margin: 0 auto;
@@ -57,10 +61,13 @@
 }
 
 
-.dev-content h3 {
+.dev-container article h3 {
   margin: 0;
   font-weight: bold;
   color: blue;
+  /* destiny added -> seperated name from description */
+  grid-column: span 2;
+  grid-row: 1;
 }
 
 .dev-content p {
@@ -114,18 +121,24 @@
   } */
 
   /* destiny added for media querie -> changed max-width from 1200px to 1000px */
-  .dev-container{
+  .dev-container {
     grid-template-columns: 1fr;
   }
-  .dev-buttons {
-    grid-column: 2;
-    grid-row: 2;
+  .dev-container article {
+    grid-template-rows: .3fr 1fr auto;
   }
   .dev-content {
+    grid-row: 2;
+    max-height: 20vh;
+    overflow-y: scroll;
+  }
+  .dev-container article h3{
     grid-row: 1;
+    grid-column: span 2;
   }
   .dev-container article img{
     grid-column: 1;
-    grid-row: 1/3;
+    grid-row: 2/4;
+    justify-self: center;
   }
 }

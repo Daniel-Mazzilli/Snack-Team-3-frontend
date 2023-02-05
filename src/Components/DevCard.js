@@ -9,8 +9,9 @@ const DevCard = ({ dev }) => {
   return (
     <article>
       <img className="photo" src={imageurl}></img>
+      <h3>{name}</h3>
       <div className="dev-content">
-        <h3>{name}</h3>
+        {/* <h3>{name}</h3> */}
         <p>{description}</p>
       </div>
       <div className="dev-buttons">
