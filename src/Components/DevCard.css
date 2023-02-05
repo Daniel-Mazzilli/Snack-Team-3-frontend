@@ -102,14 +102,30 @@
   box-shadow: none;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1000px) {
 
-  article {
+  /* article {
     display: flex;
     flex-direction: column;
+  } */
+  /* .dev-container {
+    display: flex;
+    flex-direction: column;
+  } */
+
+  /* destiny added for media querie -> changed max-width from 1200px to 1000px */
+  .dev-container{
+    grid-template-columns: 1fr;
   }
-  .dev-container {
-    display: flex;
-    flex-direction: column;
+  .dev-buttons {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .dev-content {
+    grid-row: 1;
+  }
+  .dev-container article img{
+    grid-column: 1;
+    grid-row: 1/3;
   }
 }
