@@ -1,9 +1,7 @@
 # Links
 
-[Back-End Repo](https://github.com/DestinyJoyner/Snack-Team-3-backend)
-
-[Deployed Back-End](https://snack-team-3-backend.onrender.com/)
-
+[Back-End Repo](https://github.com/DestinyJoyner/Snack-Team-3-backend)&emsp;
+[Deployed Back-End](https://snack-team-3-backend.onrender.com/)&emsp;
 [Deployed Front-End](https://team3-snax.netlify.app/)
 
 
