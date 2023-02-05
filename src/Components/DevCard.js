@@ -1,20 +1,12 @@
-import React from "react";
 import github from "../assets/github.png"
 import linkedin from "../assets/linkedin.png"
 import emailImg from "../assets/email.png"
 import "./DevCard.css";
 
-
 const DevCard = ({ dev }) => {
   const { name, imageurl, githuburl, indeedurl, email, description } = dev;
-  // console.log (name)
-  // console.log (dev.name)
-  // console.log(dev)
 
   return (
-    // <>
-    // <p>{name}</p>
-    // </>
     <article>
       <img className="photo" src={imageurl}></img>
       <div className="dev-content">

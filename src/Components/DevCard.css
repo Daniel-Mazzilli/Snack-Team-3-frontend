@@ -10,10 +10,21 @@
   background-color: rgb(245, 178, 152);
   width: 100%;
   text-align: center;
+  /* destiny added all dev cards same size -> fluidity */
+  min-height: fit-content;
+  max-height: 300px;
+  overflow-y: scroll;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  grid-template-rows: 1fr auto;
+  column-gap: 20px;
 }
 
 .dev-content {
   justify-self: center;
+  /* destiny added */
+  grid-column: 2;
+  grid-row: 1/3;
 }
 
 .dev-container {
@@ -25,12 +36,18 @@
   display: grid;
   row-gap: 80px;
   grid-template-columns: 1fr 1fr;
-  /* margin-right: 20px; */
-  /* margin-left: 20px; */
+
+  /* destiny added */
+  margin-top: 2%;
+  row-gap: 50px;
+  width: 90%;
+  padding-bottom: 8%;
 }
 
-.dev-container h2 {
-  grid-column: span 2;
+.about-h2 {
+  /* destiny added -> space btw nav and title */
+  padding-top: 20px;
+  text-align: center;
 }
 
 .photo {

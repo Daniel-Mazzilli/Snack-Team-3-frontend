@@ -2,6 +2,8 @@
   text-align: center;
   height: 100vh;
   width: 95vw;
+  /* destiny added - create space btw nav and snack name title */
+  padding-top: 20px;
 }
 
 .snackInfo {
@@ -36,6 +38,7 @@
   display: flex;
   justify-content: center;
 }
+
 .navButtons {
   all: unset;
   cursor: pointer;
@@ -46,6 +49,10 @@
   border-radius: 24px;
   font-size: 14px;
   padding: 5px 25px 5px 25px;
+   /* destiny added -> make buttons bigger */
+   height: 35px;
+   width: 200px;
+   font-size: 18px;
 }
 
 .navButtons:hover {
