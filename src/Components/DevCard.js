@@ -7,9 +7,9 @@ import "./DevCard.css";
 
 const DevCard = ({ dev }) => {
   const { name, imageurl, githuburl, indeedurl, email, description } = dev;
-  console.log (name)
-  console.log (dev.name)
-  console.log(dev)
+  // console.log (name)
+  // console.log (dev.name)
+  // console.log(dev)
 
   return (
     // <>
