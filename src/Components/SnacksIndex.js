@@ -4,7 +4,7 @@ import { useContextProvider } from "../Provider/Provider.js";
 import { WiStars } from "react-icons/wi"
 import SnackCard from "./SnackCard.js";
 import "./SnacksIndex.css";
-import { Axios } from "axios";
+
 
 export default function SnacksIndex() {
   const { snacks, setSnacks, axios, API } = useContextProvider();
@@ -63,30 +63,18 @@ export default function SnacksIndex() {
   }
 
   useEffect(() => {
-    // favorites
-    const data = JSON.parse(localStorage.getItem('favorites'))
-    
-      // compare if value is in snacks, if not remove from favorites
-     if(data){
-      const idArrFav = data.map(({id}) => id )
-      const snackIdArr = snacks.map(({id}) => id)
-      const noMatch = idArrFav.filter(el => !snackIdArr.includes(el))
-      if(noMatch.length > 0){
-        // filter out favArr
-        const updatedFavs = favorite.filter(({id}) => id !== noMatch[0])
-        setFavorite(updatedFavs)
-        localStorage.setItem('favorites', JSON.stringify(updatedFavs))
-        }
-     }
-     else {
-      setFavorite(data)
-    }
+
+    // get all snacks
       axios.get(`${API}/snacks`)
       .then(({data}) => setSnacks(data))
       .catch(err => console.log(err))
     
+    // get favorites
+    axios.get(`${API}/favorites`)
+    .then(({data}) => setFavorite(data))
+    .catch(err => console.log(err))    
     
-  }, [snacks.length]);
+  }, [snacks.length, favorite.length]);
 
   return ( 
     <div className="index">
@@ -200,14 +188,19 @@ export default function SnacksIndex() {
     {/* aside 2 favorites list */}
     <aside className="index-right">
       <h5><span>Favorites</span> <WiStars color={"gold"} size={"40px"} /></h5>
-      {/* { JSON.parse(localStorage.getItem('favorites')).length > 0 &&
-      favorite.map(({ id, name }) => {
-        return (
-          <li key={id}>
-            <Link to={`/snacks/${id}`}>{name}</Link>
-          </li> 
-        );
-      })} */}
+      {favorite.map(({ snack_id, name }) => {
+        if(snack_id){
+          return (
+            <li key={snack_id}>
+              <Link to={`/snacks/${snack_id}`}>{name}</Link>
+            </li> 
+          );
+        }
+        else {
+          return <li>{name}</li>
+        }
+        
+      })}
     </aside>
 
     {/* add (+) botton/icon/link */}

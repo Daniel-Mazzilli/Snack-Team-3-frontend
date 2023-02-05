@@ -3,6 +3,7 @@ import { useContextProvider } from "../Provider/Provider";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import SolidHeart from "../assets/heart-solid.png";
 import EmptyHeart from "../assets/heart-regular.png";
+import noImage from "../assets/default.png"
 import "./SnackShow.css";
 
 export default function SnackShow() {
@@ -39,7 +40,7 @@ export default function SnackShow() {
     <div className="snack-info">
       <h1>{snack.name}</h1>
       <div className="snackInfo">
-        <img className="snack-img" src={snack.image} alt="snack-image" />
+        <img className="snack-img" src={ snack.image? snack.image : noImage} alt="snack-image" />
         <div className="snack-text">
           <h5>
             <strong>
