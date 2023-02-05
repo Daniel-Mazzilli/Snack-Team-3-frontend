@@ -19,6 +19,12 @@
 .snack-details {
     grid-column: 2;
     text-align: center;
+    /* destiny added */
+    width: 100%;
+}
+/* destiny added */
+.snack-details a  {
+ left: 0%;
 }
 
 

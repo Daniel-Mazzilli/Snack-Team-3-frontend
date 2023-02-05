@@ -64,6 +64,12 @@
   overflow: auto;
   align-items: center;
 }
+/* destiny added */
+.index-snack a {
+  width: 0;
+  position: relative;
+  right: 40%;
+}
 
 .index-snack hr {
   grid-column: 1/4;
@@ -291,7 +297,6 @@ footer {
     all:unset;
     display: grid;
     grid-template-columns: 1fr;
-    /* max-height: 800px; */
     overflow-y: scroll;
     width: 100%;
     padding: 5% 0;
