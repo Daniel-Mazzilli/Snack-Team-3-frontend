@@ -8,12 +8,9 @@
 
 
 ## Developers:
-[Daniel Mazzilli](https://github.com/Daniel-Mazzilli)
-
-[Destiny Joyner](https://github.com/DestinyJoyner)
-
-[Salina Malek](https://github.com/Salinamalek)
-
+[Daniel Mazzilli](https://github.com/Daniel-Mazzilli)&emsp;
+[Destiny Joyner](https://github.com/DestinyJoyner)&emsp;
+[Salina Malek](https://github.com/Salinamalek)&emsp;
 [Jahaad Petty](https://github.com/PESolut)
 
 
