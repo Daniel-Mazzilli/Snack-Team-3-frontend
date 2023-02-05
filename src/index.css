@@ -16,11 +16,9 @@
 
 * {
   font-family: "Saira", sans-serif;
-  /* font-size: large; */
 }
 
 .dark {
-  /* color: #fff; */
   color: rgb(239, 235, 235);
   background-color: #031c36;
 }

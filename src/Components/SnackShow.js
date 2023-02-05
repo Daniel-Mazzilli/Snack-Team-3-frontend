@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { useContextProvider } from "../Provider/Provider";
 import { Link, useParams, useNavigate } from "react-router-dom";
+import { useContextProvider } from "../Provider/Provider";
 import SolidHeart from "../assets/heart-solid.png";
 import EmptyHeart from "../assets/heart-regular.png";
 import noImage from "../assets/default.png"
@@ -13,7 +13,6 @@ export default function SnackShow() {
   let navigate = useNavigate();
 
   useEffect(() => {
-    // console.log("useFffect running");
     axios
       .get(`${API}/snacks/${id}`)
       .then((res) => {

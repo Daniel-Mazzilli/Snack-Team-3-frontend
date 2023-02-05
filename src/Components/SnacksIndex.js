@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useContextProvider } from "../Provider/Provider.js";
-import { WiStars } from "react-icons/wi"
+import { WiStars } from "react-icons/wi";
 import SnackCard from "./SnackCard.js";
 import "./SnacksIndex.css";
-
 
 export default function SnacksIndex() {
   const { snacks, setSnacks, axios, API } = useContextProvider();
@@ -63,33 +62,35 @@ export default function SnacksIndex() {
   }
 
   useEffect(() => {
-
     // get all snacks
-      axios.get(`${API}/snacks`)
-      .then(({data}) => setSnacks(data))
-      .catch(err => console.log(err))
-    
+    axios
+      .get(`${API}/snacks`)
+      .then(({ data }) => setSnacks(data))
+      .catch((err) => console.log(err));
+
     // get favorites
-    axios.get(`${API}/favorites`)
-    .then(({data}) => setFavorite(data))
-    .catch(err => console.log(err))    
-    
+    axios
+      .get(`${API}/favorites`)
+      .then(({ data }) => setFavorite(data))
+      .catch((err) => console.log(err));
   }, [snacks.length, favorite.length]);
 
-  return ( 
+  return (
     <div className="index">
-    <section className="index-header">
-      <img 
-      className="cat-gif" 
-      src="https://i.pinimg.com/originals/75/92/9c/75929ccf9a403ec6405c0adbd8fc2977.gif" 
-      alt="snacking"/>
-      <img 
-      className="cat-gif" 
-      src="https://i.postimg.cc/653ytWF5/cat-snack.gif" 
-      alt="snacking" />
-      
-      <div className="search">
-        {/* searchbar */}
+      <section className="index-header">
+        <img
+          className="cat-gif"
+          src="https://i.pinimg.com/originals/75/92/9c/75929ccf9a403ec6405c0adbd8fc2977.gif"
+          alt="snacking"
+        />
+        <img
+          className="cat-gif"
+          src="https://i.postimg.cc/653ytWF5/cat-snack.gif"
+          alt="snacking"
+        />
+
+        <div className="search">
+          {/* searchbar */}
           <input
             id="searchbar"
             type="text"
@@ -99,122 +100,119 @@ export default function SnacksIndex() {
               handleSearch(event);
             }}
           />
-     
-        {/* radio buttons */}
-        <section className="radio">
-          <label htmlFor="healthy">
-            <input
-              type="radio"
-              id="healthy"
-              name="radio-button"
-              checked={radio === "healthy" ? true : false}
-              value="healthy"
-              onChange={(event) => handleRadio(event)}
-            />{" "}
-            Healthy
-          </label>
 
-          <label htmlFor="unhealthy">
-            <input
-              type="radio"
-              id="unhealthy"
-              name="radio-button"
-              checked={radio === "unhealthy" ? true : false}
-              value="unhealthy"
-              onChange={(event) => handleRadio(event)}
-            />{" "}
-            Unhealthy
-          </label>
+          {/* radio buttons */}
+          <section className="radio">
+            <label htmlFor="healthy">
+              <input
+                type="radio"
+                id="healthy"
+                name="radio-button"
+                checked={radio === "healthy" ? true : false}
+                value="healthy"
+                onChange={(event) => handleRadio(event)}
+              />{" "}
+              Healthy
+            </label>
 
-          <label htmlFor="showAll">
-            <input
-              type="radio"
-              id="showAll"
-              name="radio-button"
-              checked={radio === "" ? true : false}
-              value=""
-              onChange={(event) => handleRadio(event)}
-            />{" "}
-            Show All
-          </label>
-        </section>
-      </div>
-    </section>
+            <label htmlFor="unhealthy">
+              <input
+                type="radio"
+                id="unhealthy"
+                name="radio-button"
+                checked={radio === "unhealthy" ? true : false}
+                value="unhealthy"
+                onChange={(event) => handleRadio(event)}
+              />{" "}
+              Unhealthy
+            </label>
 
+            <label htmlFor="showAll">
+              <input
+                type="radio"
+                id="showAll"
+                name="radio-button"
+                checked={radio === "" ? true : false}
+                value=""
+                onChange={(event) => handleRadio(event)}
+              />{" "}
+              Show All
+            </label>
+          </section>
+        </div>
+      </section>
 
-    {/* aside1 fiber/ protein */}
-    <aside className="index-left">
-      <div className="fiber">
-        <h5>High in Fiber:</h5>
-        {snacks.map(({ fiber, name, id }) => {
-          if (+fiber > 15) {
+      {/* aside1 fiber/ protein */}
+      <aside className="index-left">
+        <div className="fiber">
+          <h5>High in Fiber:</h5>
+          {snacks.map(({ fiber, name, id }) => {
+            if (+fiber > 15) {
+              return (
+                <Link key={id} to={`/snacks/${id}`}>
+                  <li>
+                    <span>{name}</span>
+                  </li>
+                </Link>
+              );
+            }
+          })}
+        </div>
+        <hr />
+        <div className="fiber">
+          <h5>High In Protein</h5>
+          {snacks.map(({ protein, name, id }) => {
+            if (+protein > 20) {
+              return (
+                <Link key={id} to={`/snacks/${id}`}>
+                  <li>{name}</li>
+                </Link>
+              );
+            }
+          })}
+        </div>
+      </aside>
+
+      {/* snack details */}
+      <section className="index-snack">
+        {data.map((snack) => (
+          <SnackCard
+            key={snack.id}
+            snack={snack}
+            setSearch={setSearch}
+            setSearchResult={setSearchResult}
+            favorite={favorite}
+            setFavorite={setFavorite}
+          />
+        ))}
+      </section>
+
+      {/* aside 2 favorites list */}
+      <aside className="index-right">
+        <h5>
+          <span>Favorites</span> <WiStars color={"gold"} size={"40px"} />
+        </h5>
+        {favorite.map(({ snack_id, name }) => {
+          if (snack_id) {
             return (
-              <Link key={id} to={`/snacks/${id}`}>
-                <li><span>{name}</span></li>
-              </Link>
+              <li key={snack_id}>
+                <Link to={`/snacks/${snack_id}`}>{name}</Link>
+              </li>
             );
+          } else {
+            return <li>{name}</li>;
           }
         })}
-      </div>
-      <hr />
-      <div className="fiber">
-        <h5>High In Protein</h5>
-        {snacks.map(({ protein, name, id }) => {
-          if (+protein > 20) {
-            return (
-              <Link key={id} to={`/snacks/${id}`}>
-                <li>{name}</li>
-              </Link>
-            );
-          }
-        })}
-      </div>
-    </aside>
+      </aside>
 
-    {/* snack details */}
-    <section className="index-snack">
-      {data.map((snack) => (
-        <SnackCard
-          key={snack.id}
-          snack={snack}
-          setSearch={setSearch}
-          setSearchResult={setSearchResult}
-          favorite={favorite}
-          setFavorite={setFavorite}
+      {/* add (+) botton/icon/link */}
+      <Link to="/snacks/new">
+        <img
+          src="https://www.pngkey.com/png/detail/136-1362850_this-free-icons-png-design-of-plus-icon.png"
+          alt="plus-sign"
+          className="add-button"
         />
-      ))}
-    </section>
-
-    {/* aside 2 favorites list */}
-    <aside className="index-right">
-      <h5><span>Favorites</span> <WiStars color={"gold"} size={"40px"} /></h5>
-      {favorite.map(({ snack_id, name }) => {
-        if(snack_id){
-          return (
-            <li key={snack_id}>
-              <Link to={`/snacks/${snack_id}`}>{name}</Link>
-            </li> 
-          );
-        }
-        else {
-          return <li>{name}</li>
-        }
-        
-      })}
-    </aside>
-
-    {/* add (+) botton/icon/link */}
-    <Link to="/snacks/new">
-      <img
-        src="https://www.pngkey.com/png/detail/136-1362850_this-free-icons-png-design-of-plus-icon.png"
-        alt="plus-sign"
-        className="add-button"
-      />
-    </Link>
-
-  </div>
-  
-      
+      </Link>
+    </div>
   );
-      
 }

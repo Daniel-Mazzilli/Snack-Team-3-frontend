@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
 import { useContextProvider } from "../Provider/Provider";
-import Logo from "../assets/heart-solid.png";
-import snax from "../assets/logo.png";
 import darkMode from "../assets/darkmode.png";
 import lightMode from "../assets/lightmode.png";
 import "./Nav.css";

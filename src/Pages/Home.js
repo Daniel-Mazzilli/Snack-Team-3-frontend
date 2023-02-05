@@ -4,7 +4,6 @@ import welcome from "../assets/Welcome.png";
 export default function Home() {
   return (
     <div id="home">
-      {/* <h1>Welcome to Snax!</h1> */}
       <img src={welcome} alt="welcome" />
       <p>
         <span>Welcome to SNAX!</span>
@@ -17,7 +16,6 @@ export default function Home() {
         <br/>
         Click on any of the above links to get started!  
       </p>
-      {/* <img src="https://media0.giphy.com/media/WQZJkXIPyxsFW4wuaC/giphy.gif?cid=790b76115edec05a6fac57a8cd9d14772b2b9a7ee9004857&rid=giphy.gif&ct=s" alt="snack all day" height="340px" /> */}
     </div>
   );
 }
