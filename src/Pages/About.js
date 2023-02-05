@@ -11,10 +11,7 @@ export default function About() {
   useEffect(() => {
     axios
       .get(`${API}/devs`)
-      .then((res) => {
-        setDevs(res.data);
-        console.log(res.data[0])
-      })
+      .then((res) => setDevs(res.data))
       .catch(() => navigate("/not-found"));
   }, [navigate],[]);
 
