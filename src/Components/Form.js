@@ -9,7 +9,7 @@ import "./Form.css";
 export default function Form() {
   const navigate = useNavigate();
   const { id } = useParams();
-  const { axios, API, setHidden, trigger, setTrigger, setSnacks, snacks } = useContextProvider();
+  const { axios, API, setHidden, trigger, setTrigger } = useContextProvider();
   const [isHealthy, setIsHealthy] = useState(false);
   const [modal, setModal] = useState(false);
   const [snack, setSnack] = useState({
@@ -61,12 +61,11 @@ export default function Form() {
         })
         .catch((error) => console.log(error));
     } else {
-      // update snacks with added snack before navigating with resp from post req.
       axios
         .post(`${API}/snacks`, snack)
-        .then(({data}) =>{
-          setSnacks([...snacks, data])
-          navigate("/snacks")
+        .then(() => {
+          navigate("/snacks");
+          setTrigger(-trigger);
         })
         .catch((error) => console.log(error));
     }
